@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWriter", "FileWriter\FileWriter.csproj", "{52E276B6-3A21-4F7E-86BB-E54D316E3594}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{8FDAA240-AF6A-411E-B60B-BF9C9BA5B4E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileReader", "FileReader\FileReader.csproj", "{C9E638B6-DE35-41DD-875B-47D6A0EB046C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52E276B6-3A21-4F7E-86BB-E54D316E3594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52E276B6-3A21-4F7E-86BB-E54D316E3594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52E276B6-3A21-4F7E-86BB-E54D316E3594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52E276B6-3A21-4F7E-86BB-E54D316E3594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDAA240-AF6A-411E-B60B-BF9C9BA5B4E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDAA240-AF6A-411E-B60B-BF9C9BA5B4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDAA240-AF6A-411E-B60B-BF9C9BA5B4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDAA240-AF6A-411E-B60B-BF9C9BA5B4E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9E638B6-DE35-41DD-875B-47D6A0EB046C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E638B6-DE35-41DD-875B-47D6A0EB046C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E638B6-DE35-41DD-875B-47D6A0EB046C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E638B6-DE35-41DD-875B-47D6A0EB046C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
