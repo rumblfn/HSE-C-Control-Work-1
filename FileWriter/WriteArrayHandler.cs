@@ -108,11 +108,11 @@ public abstract class WriteArrayHandler
     /// <returns>save success status</returns>
     private static bool HandleSaveFile(in string content)
     {
-        string fileNameInput;
+        string? fileNameInput;
         do
         {
             ConsoleMethod.NicePrint(Constants.FileNameInputMessage);
-            fileNameInput = Console.ReadLine() ?? Constants.EmptyInput;
+            fileNameInput = Console.ReadLine();
         } while (!Validator.IsValidFileNameInput(fileNameInput));
         
         // Can also use a relative path (without AppDomain).

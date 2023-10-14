@@ -6,8 +6,8 @@ public struct Constants
     
     public static readonly string AgainMessage = $"Press any key to restart or {ExitKeyboardKey} to exit.";
 
-    public const string ProgramStartedMessage = "Program started.";
-    public const string ProgramFinishedMessage = "Program finished.";
+    public const string ProgramStartedMessage = "FileWriter program started.";
+    public const string ProgramFinishedMessage = "FileWriter program finished.";
     public const string TryAgainMessage = "Try again.";
     
     public const string ArraySizeRangeErrorMessage = "The value must be greater than 0 and less than or equal to 15.";

@@ -37,8 +37,14 @@ public abstract class Validator
     /// </summary>
     /// <param name="fileName"></param>
     /// <returns></returns>
-    public static bool IsValidFileNameInput(string fileName)
+    public static bool IsValidFileNameInput(string? fileName)
     {
+        if (string.IsNullOrEmpty(fileName))
+        {
+            return false;
+        }
+        
+        // For the windows operating system.
         if (StringMethod.ContainsAny(fileName, Constants.FileNameExcludeLetters))
         {
             ConsoleMethod.NicePrint(Constants.ExcludeLettersErrorMessage, CustomColor.ErrorColor);
@@ -50,6 +56,6 @@ public abstract class Validator
             ConsoleMethod.NicePrint(Constants.NotRecommendedLettersWarningMessage, CustomColor.WarningColor);
         }
 
-        return !string.IsNullOrEmpty(fileName);
+        return true;
     }
 }
