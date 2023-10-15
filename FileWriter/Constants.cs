@@ -1,5 +1,10 @@
 namespace FileWriter;
 
+// More correct to implement a config file (text format) and read values from it.
+// For example, using a Dictionary.
+/// <summary>
+/// Application constants, analogous to the config.
+/// </summary>
 public struct Constants
 {
     public const ConsoleKey ExitKeyboardKey = ConsoleKey.Q;

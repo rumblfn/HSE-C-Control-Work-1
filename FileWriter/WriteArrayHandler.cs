@@ -20,7 +20,7 @@ public abstract class WriteArrayHandler
         double numerator = n * Math.Cos(n);
         double denominator = Math.Pow(n, 2) + 1;
         
-        return Math.Round(numerator / denominator, 2);
+        return Math.Round(numerator / denominator, Lib.Constants.RoundNumber);
     }
 
     /// <summary>
@@ -56,16 +56,25 @@ public abstract class WriteArrayHandler
         // Get array sizes.
         int rowSize = array.GetLength(0);
         int columnSize = array.GetLength(1);
-        
+
+        int elementsSeparatorLength = Lib.Constants.ElementsSeparator.Length;
         var resultString = new StringBuilder($"{rowSize} {columnSize}{Environment.NewLine}");
         
         for (int rowIndex = 0; rowIndex < rowSize; rowIndex++)
         {
             for (int columnIndex = 0; columnIndex < columnSize; columnIndex++)
             {
-                resultString.Append(array[rowIndex, columnIndex] + ConsoleMethod.ElementsSeparator);
+                resultString.Append(array[rowIndex, columnIndex] + Lib.Constants.ElementsSeparator);
             }
-            resultString.Append(ConsoleMethod.ElementsSeparator + Environment.NewLine);
+
+            // Removes last element separator.
+            if (columnSize > 0)
+            {
+                resultString.Remove(resultString.Length - elementsSeparatorLength, elementsSeparatorLength);
+            }
+            
+            resultString.Append(Lib.Constants.LineEnd);
+            resultString.Append(Lib.Constants.LinesSeparator);
         }
 
         // Convert StringBuilder to string.
@@ -91,12 +100,16 @@ public abstract class WriteArrayHandler
             ConsoleMethod.NicePrint(Constants.FileSavedPathMessage(filePath));
             return true;
         }
+        catch (PathTooLongException)
+        {
+            ConsoleMethod.NicePrint(Constants.PathTooLongErrorMessage);
+        }
         catch (Exception ex)
         {
             ConsoleMethod.NicePrint(ex.Message, CustomColor.ErrorColor);
-            ConsoleMethod.NicePrint(Constants.FileNameErrorMessage);
         }
-
+        
+        ConsoleMethod.NicePrint(Constants.FileNameErrorMessage);
         return false;
     }
 

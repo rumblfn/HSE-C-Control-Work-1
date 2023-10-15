@@ -4,9 +4,6 @@
 /// </summary>
 public abstract class ConsoleMethod
 {
-    // Elements separator in human read array format.
-    public const string ElementsSeparator = "*";
-    
     /// <summary>
     /// Prints a message with a specified color.
     /// </summary>
@@ -17,5 +14,22 @@ public abstract class ConsoleMethod
         Console.ForegroundColor = color;
         Console.WriteLine(message);
         Console.ResetColor();
+    }
+
+    /// <summary>
+    /// Outputs an array to the console with the specified delimiters.
+    /// </summary>
+    /// <param name="arr">common array</param>
+    /// <param name="elementsSeparator">sep for elements</param>
+    /// <param name="linesSeparator">end for line</param>
+    public static void PrintArray(in double [][] arr, string? linesSeparator = null, string? elementsSeparator = " ")
+    {
+        string[] arrayRows = new string[arr.Length];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            arrayRows[i] = string.Join(elementsSeparator, arr[i]);
+        }
+
+        NicePrint(string.Join(linesSeparator ?? Environment.NewLine, arrayRows), CustomColor.ProgressColor);
     }
 }
