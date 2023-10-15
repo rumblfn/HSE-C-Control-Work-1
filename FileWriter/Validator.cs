@@ -2,7 +2,7 @@ using Lib;
 
 namespace FileWriter;
 
-public abstract class Validator
+internal abstract class Validator
 {
     /// <summary>
     /// Validates and saves the value entered by the user according to the criteria of the task.

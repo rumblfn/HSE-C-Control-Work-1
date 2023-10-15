@@ -6,7 +6,7 @@ namespace FileWriter;
 /// <summary>
 /// It's used to calculate and save two-dimensional arrays in file.
 /// </summary>
-public abstract class WriteArrayHandler
+internal abstract class WriteArrayHandler
 {
     private static readonly string BasePath = AppDomain.CurrentDomain.BaseDirectory;
 

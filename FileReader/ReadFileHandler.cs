@@ -2,7 +2,7 @@ using Lib;
 
 namespace FileReader;
 
-public static class ReadFileHandler
+internal static class ReadFileHandler
 {
     /// <summary>
     /// Checks the correctness of the data format specified by the task conditions.

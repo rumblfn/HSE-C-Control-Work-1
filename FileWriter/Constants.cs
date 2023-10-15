@@ -5,18 +5,18 @@ namespace FileWriter;
 /// <summary>
 /// Application constants, analogous to the config.
 /// </summary>
-public struct Constants
+internal struct Constants
 {
     public const ConsoleKey ExitKeyboardKey = ConsoleKey.Q;
-    
-    public static readonly string AgainMessage = $"Press any key to restart or {ExitKeyboardKey} to exit.";
 
+    public const string TryAgainMessage = "Try again.";
+    public const string ArrayCalculated = "The result is calculated.";
+    public const string DefaultArgumentErrorMessage = "Wrong argument.";
+    
     public const string ProgramStartedMessage = "FileWriter program started.";
     public const string ProgramFinishedMessage = "FileWriter program finished.";
-    public const string TryAgainMessage = "Try again.";
     
     public const string ArraySizeRangeErrorMessage = "The value must be greater than 0 and less than or equal to 15.";
-    public const string DefaultArgumentErrorMessage = "Wrong argument.";
     
     public static readonly char[] FileNameExcludeLetters = {'>', '<', '|', '?', '*', '/', '\\', ':', '\"'};
     public static readonly char[] FileNameNotRecommendedLetters = 
@@ -42,10 +42,9 @@ public struct Constants
     public const string SaveFileExistMessage = "The file already exists, trying to overwrite it.";
     public const string SaveFileMessage = "Saving the file.";
 
-    public const string SaveFileUnexpectedErrorMessage = "An unexpected error occurred while saving the file.";
+    public const string FileNameErrorMessage = "Try again, with another filename.";
     public const string PathTooLongErrorMessage =
         "The specified path, file name, or both exceed the system-defined maximum length.";
-    public const string FileNameErrorMessage = "Try again, with another filename.";
-    
-    public const string ArrayCalculated = "The result is calculated.";
+    public static readonly string AgainMessage = $"Press any key to restart or {ExitKeyboardKey} to exit.";
+    public const string SaveFileUnexpectedErrorMessage = "An unexpected error occurred while saving the file.";
 }
