@@ -11,7 +11,7 @@ internal static class Program
     /// <summary>
     /// Checks for exit from the program.
     /// </summary>
-    /// <returns>Key is not escape</returns>
+    /// <returns>Key is not escape.</returns>
     private static bool HandleAgain()
     {
         ConsoleMethod.NicePrint(Constants.AgainMessage, CustomColor.SystemColor);

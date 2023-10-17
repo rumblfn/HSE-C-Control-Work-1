@@ -2,38 +2,43 @@ using Lib;
 
 namespace FileReader;
 
+/// <summary>
+/// The handler of the file by the name entered by the user.
+/// </summary>
 internal static class ReadFileHandler
 {
     /// <summary>
-    /// Checks the correctness of the data format specified by the task conditions.
+    /// Processes a string of data.
     /// </summary>
-    /// <param name="content">file content</param>
-    /// <returns>data correctness</returns>
+    /// <param name="content">File content.</param>
+    /// <returns>Two-dimensional array of processed string.</returns>
+    /// <exception cref="IndexOutOfRangeException">Mismatch of the number of columns or rows.</exception>
+    /// <exception cref="FormatException">Incorrect delimiters or empty elements.</exception>
     private static double[][] ParseFileContent(string content)
     {
-        // Remove empty lines at the end
+        // Removes empty lines at the end
         string[] lines = content.TrimEnd().Split(Lib.Constants.LinesSeparator);
         if (lines.Length == 0)
         {
-            throw new Exception(Constants.FileEmptyLinesErrorMessage);
+            throw new IndexOutOfRangeException(Constants.FileEmptyLinesErrorMessage);
         }
 
-        string[] sizes = lines[0].Trim().Split(" ");
+        string[] sizes = lines[0].Trim().Split(Lib.Constants.ArraySizesSeparator);
         if (sizes.Length != 2)
         {
-            throw new Exception(Constants.FileFirstLineErrorMessage);
+            throw new IndexOutOfRangeException(Constants.FileFirstLineErrorMessage);
         }
 
         bool rowCountParsed = int.TryParse(sizes[0], out int rowCount);
         bool columnCountParsed = int.TryParse(sizes[1], out int columnCount);
         if (!rowCountParsed || !columnCountParsed)
         {
-            throw new FormatException(Constants.SizesParseErrorMessage);
+            throw new IndexOutOfRangeException(Constants.SizesParseErrorMessage);
         }
 
         if (lines.Length - 1 != rowCount)
         {
-            throw new Exception(Constants.RowSizeErrorMessage);
+            throw new IndexOutOfRangeException(Constants.RowSizeErrorMessage);
         }
 
         // Initialize array to fill.
@@ -47,28 +52,24 @@ internal static class ReadFileHandler
             
             if (!row.EndsWith(Lib.Constants.LineEnd))
             {
-                throw new Exception(Constants.LineEndErrorMessage);
+                throw new FormatException(Constants.LineEndErrorMessage);
             }
 
-            // Remove line ending.
             row = row.Remove(row.Length - Lib.Constants.LineEnd.Length);
             string[] rowElements = row.Split(Lib.Constants.ElementsSeparator);
             
             if (rowElements.Length != columnCount)
             {
-                throw new Exception(Constants.ColumnSizeErrorMessage);
+                throw new IndexOutOfRangeException(Constants.ColumnSizeErrorMessage);
             }
 
             foreach (var element in rowElements.Select((value, idx) => (value, idx)))
             {
                 if (!double.TryParse(element.value, out double parsedValue))
                 {
-                    throw new Exception(Constants.ElementParseErrorMessage);
+                    throw new FormatException(Constants.ElementParseErrorMessage);
                 }
-                else
-                {
-                    array[rowIdx][element.idx] = Math.Round(parsedValue, Lib.Constants.RoundNumber);   
-                }
+                array[rowIdx][element.idx] = Math.Round(parsedValue, Lib.Constants.RoundNumber);
             }
         }
         
@@ -78,7 +79,7 @@ internal static class ReadFileHandler
     /// <summary>
     /// Produces a matrix shift.
     /// </summary>
-    /// <param name="arr">two-dimensional array</param>
+    /// <param name="arr">Two-dimensional array.</param>
     private static void ShiftArray(ref double[][] arr)
     {
         int rowSize = arr.Length;
@@ -101,7 +102,7 @@ internal static class ReadFileHandler
     /// <summary>
     /// Use for handling file opening and handling Exceptions.
     /// </summary>
-    /// <param name="path">File path (relative or absolute)</param>
+    /// <param name="path">File path (relative or absolute).</param>
     private static void HandleOpenFile(string path)
     {
         try
@@ -117,7 +118,7 @@ internal static class ReadFileHandler
                 ConsoleMethod.NicePrint(Constants.ProcessedDataMessage);
                 ConsoleMethod.PrintArray(parsedMatrix);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ConsoleMethod.NicePrint(Constants.FileContentFormatErrorMessage, CustomColor.ErrorColor);
             }

@@ -7,8 +7,8 @@ public abstract class ConsoleMethod
     /// <summary>
     /// Prints a message with a specified color.
     /// </summary>
-    /// <param name="message">Message content</param>
-    /// <param name="color">Message color</param>
+    /// <param name="message">Message content.</param>
+    /// <param name="color">Message color.</param>
     public static void NicePrint(string message, ConsoleColor color = CustomColor.DefaultColor)
     {
         Console.ForegroundColor = color;
@@ -19,9 +19,9 @@ public abstract class ConsoleMethod
     /// <summary>
     /// Outputs an array to the console with the specified delimiters.
     /// </summary>
-    /// <param name="arr">common array</param>
-    /// <param name="elementsSeparator">sep for elements</param>
-    /// <param name="linesSeparator">end for line</param>
+    /// <param name="arr">Common array.</param>
+    /// <param name="elementsSeparator">Sep for elements.</param>
+    /// <param name="linesSeparator">End for line.</param>
     public static void PrintArray(in double [][] arr, string? linesSeparator = null, string? elementsSeparator = " ")
     {
         string[] arrayRows = new string[arr.Length];

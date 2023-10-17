@@ -7,9 +7,9 @@ internal abstract class Validator
     /// <summary>
     /// Validates and saves the value entered by the user according to the criteria of the task.
     /// </summary>
-    /// <param name="input">User input</param>
+    /// <param name="input">User input.</param>
     /// <param name="arraySize">The variable in which the checked value should be stored.</param>
-    /// <returns>Validation status</returns>
+    /// <returns>Validation status.</returns>
     public static bool IsValidSizeInput(string? input, out int arraySize)
     {
         string error = "";
@@ -35,8 +35,8 @@ internal abstract class Validator
     /// <summary>
     /// Validates file name.
     /// </summary>
-    /// <param name="fileName"></param>
-    /// <returns></returns>
+    /// <param name="fileName">FileName to check.</param>
+    /// <returns>Is file name correct.</returns>
     public static bool IsValidFileNameInput(string? fileName)
     {
         if (string.IsNullOrEmpty(fileName))

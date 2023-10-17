@@ -1,5 +1,8 @@
 namespace Lib;
 
+/// <summary>
+/// Color values of both projects.
+/// </summary>
 public struct CustomColor
 {
     // App colors.

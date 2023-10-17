@@ -13,8 +13,8 @@ internal abstract class WriteArrayHandler
     /// <summary>
     /// Calculates the value of the function f(n) = n * cos(n) / (n^2 + 1).
     /// </summary>
-    /// <param name="n">The argument of the calculated function</param>
-    /// <returns>function result</returns>
+    /// <param name="n">The argument of the calculated function.</param>
+    /// <returns>function result.</returns>
     private static double CalcFunc(double n)
     {
         double numerator = n * Math.Cos(n);
@@ -26,8 +26,8 @@ internal abstract class WriteArrayHandler
     /// <summary>
     /// Fills an array with numbers.
     /// </summary>
-    /// <param name="array">array to save</param>
-    /// <param name="size">two-dimensional array size</param>
+    /// <param name="array">Array to save.</param>
+    /// <param name="size">Two-dimensional array size.</param>
     private static void FillTwoDimensionalArray(out double[,] array, int size)
     {
         // Creating a new tow-dimensional array with rank size x size.
@@ -49,8 +49,8 @@ internal abstract class WriteArrayHandler
     /// <summary>
     /// Converts two-dimensional array to human read format (string).
     /// </summary>
-    /// <param name="array">Two-dimensional array</param>
-    /// <returns>String with breaks</returns>
+    /// <param name="array">Two-dimensional array.</param>
+    /// <returns>String with breaks.</returns>
     private static string ConvertTwoDimensionalArrayToString(in double[,] array)
     {
         // Get array sizes.
@@ -58,7 +58,7 @@ internal abstract class WriteArrayHandler
         int columnSize = array.GetLength(1);
 
         int elementsSeparatorLength = Lib.Constants.ElementsSeparator.Length;
-        var resultString = new StringBuilder($"{rowSize} {columnSize}{Environment.NewLine}");
+        var resultString = new StringBuilder($"{rowSize}${Lib.Constants.ArraySizesSeparator}{columnSize}{Environment.NewLine}");
         
         for (int rowIndex = 0; rowIndex < rowSize; rowIndex++)
         {
@@ -84,8 +84,8 @@ internal abstract class WriteArrayHandler
     /// <summary>
     /// Method saves the text to a file.
     /// </summary>
-    /// <param name="filePath">path where save</param>
-    /// <param name="content">text to save</param>
+    /// <param name="filePath">Path where save.</param>
+    /// <param name="content">Text to save</param>
     private static bool SaveStringAsFile(string filePath, in string content)
     {
         try
@@ -117,8 +117,8 @@ internal abstract class WriteArrayHandler
     /// Use this method to save the content to a file with the specified name.
     /// The method is necessary to call again and handle errors related to the file name.
     /// </summary>
-    /// <param name="content">content to write to a file</param>
-    /// <returns>save success status</returns>
+    /// <param name="content">Content to write to a file.</param>
+    /// <returns>Save success status.</returns>
     private static bool HandleSaveFile(in string content)
     {
         string? fileNameInput;

@@ -1,7 +1,13 @@
 namespace Lib;
 
+/// <summary>
+/// The constant values used by both projects can be changed to any values.
+/// </summary>
 public struct Constants
 {
+    // The separator between the array sizes in the matrix record format.
+    public const string ArraySizesSeparator = " ";
+    
     // Sep for human read array format.
     public const string LineEnd = "**";
     public const string ElementsSeparator = "*";

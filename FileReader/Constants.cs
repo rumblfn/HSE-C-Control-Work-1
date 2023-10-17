@@ -1,5 +1,8 @@
 namespace FileReader;
 
+/// <summary>
+/// Constant values (messages).
+/// </summary>
 internal struct Constants
 {
     public const ConsoleKey ExitKeyboardKey = ConsoleKey.Q;
