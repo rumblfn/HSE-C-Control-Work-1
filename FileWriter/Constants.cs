@@ -27,7 +27,8 @@ internal struct Constants
 
     public static readonly string NotRecommendedLettersWarningMessage =
         $"Characters not recommended for use in the file name: {string.Join(", ", FileNameNotRecommendedLetters)}";
-    
+
+    public const string SecurityErrorMessage = "Security error detected.";
     public const string FileNameSameAsProcessNameMessage = 
         "The file name is the same as the program name, try another name.";
     

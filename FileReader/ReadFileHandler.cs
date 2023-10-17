@@ -1,3 +1,4 @@
+using System.Security;
 using Lib;
 
 namespace FileReader;
@@ -108,20 +109,30 @@ internal static class ReadFileHandler
         try
         {
             string readText = File.ReadAllText(path);
-            try
-            {
-                double[][] parsedMatrix = ParseFileContent(readText);
-                ConsoleMethod.NicePrint(Constants.InitialDataMessage);
-                ConsoleMethod.PrintArray(parsedMatrix);
-                
-                ShiftArray(ref parsedMatrix);
-                ConsoleMethod.NicePrint(Constants.ProcessedDataMessage);
-                ConsoleMethod.PrintArray(parsedMatrix);
-            }
-            catch (Exception)
-            {
-                ConsoleMethod.NicePrint(Constants.FileContentFormatErrorMessage, CustomColor.ErrorColor);
-            }
+
+            double[][] parsedMatrix = ParseFileContent(readText);
+            ConsoleMethod.NicePrint(Constants.InitialDataMessage);
+            ConsoleMethod.PrintArray(parsedMatrix);
+
+            ShiftArray(ref parsedMatrix);
+            ConsoleMethod.NicePrint(Constants.ProcessedDataMessage);
+            ConsoleMethod.PrintArray(parsedMatrix);
+        }
+        catch (IndexOutOfRangeException)
+        {
+            ConsoleMethod.NicePrint(Constants.FileContentFormatErrorMessage, CustomColor.ErrorColor);
+        }
+        catch (FormatException)
+        {
+            ConsoleMethod.NicePrint(Constants.FileContentFormatErrorMessage, CustomColor.ErrorColor);
+        }
+        catch (SecurityException)
+        {
+            ConsoleMethod.NicePrint(Constants.SecurityErrorMessage, CustomColor.ErrorColor);
+        }
+        catch (PathTooLongException)
+        {
+            ConsoleMethod.NicePrint(Constants.PathTooLongErrorMessage, CustomColor.ErrorColor);
         }
         catch (Exception ex)
         {

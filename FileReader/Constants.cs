@@ -16,9 +16,12 @@ internal struct Constants
     public const string FileEmptyLinesErrorMessage = "Empty lines.";
     public const string RowSizeErrorMessage = "RowSizeErrorMessage.";
     public const string LineEndErrorMessage = "LineEndErrorMessage.";
+    public const string SecurityErrorMessage = "Security error detected.";
     public const string ColumnSizeErrorMessage = "ColumnSizeErrorMessage.";
     public const string ElementParseErrorMessage = "ElementParseErrorMessage.";
     public const string SizesParseErrorMessage = "Cannot parse sizes of matrix.";
+    public const string PathTooLongErrorMessage =
+        "The specified path, file name, or both exceed the system-defined maximum length.";
 
     public const string InitialDataMessage = "Initial data:";
     public const string ProcessedDataMessage = "Data after processing:";

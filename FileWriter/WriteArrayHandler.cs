@@ -1,3 +1,4 @@
+using System.Security;
 using System.Text;
 using Lib;
 
@@ -58,7 +59,7 @@ internal abstract class WriteArrayHandler
         int columnSize = array.GetLength(1);
 
         int elementsSeparatorLength = Lib.Constants.ElementsSeparator.Length;
-        var resultString = new StringBuilder($"{rowSize}${Lib.Constants.ArraySizesSeparator}{columnSize}{Environment.NewLine}");
+        var resultString = new StringBuilder($"{rowSize}{Lib.Constants.ArraySizesSeparator}{columnSize}{Environment.NewLine}");
         
         for (int rowIndex = 0; rowIndex < rowSize; rowIndex++)
         {
@@ -100,9 +101,13 @@ internal abstract class WriteArrayHandler
             ConsoleMethod.NicePrint(Constants.FileSavedPathMessage(filePath));
             return true;
         }
+        catch (SecurityException)
+        {
+            ConsoleMethod.NicePrint(Constants.SecurityErrorMessage, CustomColor.ErrorColor);
+        }
         catch (PathTooLongException)
         {
-            ConsoleMethod.NicePrint(Constants.PathTooLongErrorMessage);
+            ConsoleMethod.NicePrint(Constants.PathTooLongErrorMessage, CustomColor.ErrorColor);
         }
         catch (Exception ex)
         {
