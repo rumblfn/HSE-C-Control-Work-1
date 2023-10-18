@@ -101,6 +101,10 @@ internal abstract class WriteArrayHandler
             ConsoleMethod.NicePrint(Constants.FileSavedPathMessage(filePath));
             return true;
         }
+        catch (ArgumentException ex)
+        {
+            ConsoleMethod.NicePrint(ex.Message);
+        }
         catch (SecurityException)
         {
             ConsoleMethod.NicePrint(Constants.SecurityErrorMessage, CustomColor.ErrorColor);
@@ -108,6 +112,10 @@ internal abstract class WriteArrayHandler
         catch (PathTooLongException)
         {
             ConsoleMethod.NicePrint(Constants.PathTooLongErrorMessage, CustomColor.ErrorColor);
+        }
+        catch (IOException ex)
+        {
+            ConsoleMethod.NicePrint(ex.Message, CustomColor.ErrorColor);
         }
         catch (Exception ex)
         {

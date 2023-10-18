@@ -44,13 +44,6 @@ internal abstract class Validator
             return false;
         }
         
-        // For the windows operating system.
-        if (StringMethod.ContainsAny(fileName, Constants.FileNameExcludeLetters))
-        {
-            ConsoleMethod.NicePrint(Constants.ExcludeLettersErrorMessage, CustomColor.ErrorColor);
-            return false;
-        }
-        
         if (StringMethod.ContainsAny(fileName, Constants.FileNameNotRecommendedLetters))
         {
             ConsoleMethod.NicePrint(Constants.NotRecommendedLettersWarningMessage, CustomColor.WarningColor);
