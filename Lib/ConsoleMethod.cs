@@ -30,6 +30,10 @@ public abstract class ConsoleMethod
             arrayRows[i] = string.Join(elementsSeparator, arr[i]);
         }
 
-        NicePrint(string.Join(linesSeparator ?? Environment.NewLine, arrayRows), CustomColor.ProgressColor);
+        string arrayString = string.Join(linesSeparator ?? Environment.NewLine, arrayRows);
+
+        NicePrint(
+            arrayString.Length > 0 ? arrayString : Constants.EmptyArrayMessage, 
+            CustomColor.ProgressColor);
     }
 }

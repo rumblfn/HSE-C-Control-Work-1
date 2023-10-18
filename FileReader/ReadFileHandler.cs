@@ -66,7 +66,8 @@ internal static class ReadFileHandler
 
             foreach (var element in rowElements.Select((value, idx) => (value, idx)))
             {
-                if (!double.TryParse(element.value, out double parsedValue))
+                if (element.value.Trim().Length != element.value.Length || 
+                    !double.TryParse(element.value, out double parsedValue))
                 {
                     throw new FormatException(Constants.ElementParseErrorMessage);
                 }
@@ -118,13 +119,13 @@ internal static class ReadFileHandler
             ConsoleMethod.NicePrint(Constants.ProcessedDataMessage);
             ConsoleMethod.PrintArray(parsedMatrix);
         }
-        catch (IndexOutOfRangeException)
+        catch (IndexOutOfRangeException ex)
         {
-            ConsoleMethod.NicePrint(Constants.FileContentFormatErrorMessage, CustomColor.ErrorColor);
+            ConsoleMethod.NicePrint(ex.Message, CustomColor.ErrorColor);
         }
-        catch (FormatException)
+        catch (FormatException ex)
         {
-            ConsoleMethod.NicePrint(Constants.FileContentFormatErrorMessage, CustomColor.ErrorColor);
+            ConsoleMethod.NicePrint(ex.Message, CustomColor.ErrorColor);
         }
         catch (SecurityException)
         {

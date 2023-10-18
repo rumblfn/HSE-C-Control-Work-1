@@ -15,4 +15,7 @@ public struct Constants
 
     // Number of digits after the decimal separator.
     public const int RoundNumber = 2;
+    
+    // Messages.
+    public const string EmptyArrayMessage = "Empty array.";
 }
