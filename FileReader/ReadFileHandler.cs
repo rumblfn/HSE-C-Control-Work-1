@@ -88,7 +88,7 @@ internal static class ReadFileHandler
         
         for (int i = 0; i < rowSize; i++)
         {
-            int columnLength = (int)Math.Floor(arr[i].Length / 2.0);
+            int columnLength = arr[i].Length / 2;
             arrayBox[i] = new double[columnLength];
             
             for (int j = 0; j < columnLength; j++)
