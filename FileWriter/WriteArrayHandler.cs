@@ -38,7 +38,7 @@ internal abstract class WriteArrayHandler
             for (int columnIndex = 0; columnIndex < size; columnIndex++)
             {
                 // Human read rows and columns.
-                int numberOfCalculation = (rowIndex * 3) + (columnIndex + 1);
+                int numberOfCalculation = (rowIndex * size) + (columnIndex + 1);
                 arr[rowIndex, columnIndex] = CalcFunc(numberOfCalculation);
             }
         }
