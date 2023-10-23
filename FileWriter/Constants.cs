@@ -18,7 +18,7 @@ internal struct Constants
     
     public const string ArraySizeRangeErrorMessage = "The value must be greater than 0 and less than or equal to 15.";
     
-    public static readonly char[] FileNameExcludeLetters = {'>', '<', '|', '?', '*', '/', '\\', ':', '\"'};
+    public static readonly char[] FileNameExcludeLetters = Path.GetInvalidPathChars();
     public static readonly char[] FileNameNotRecommendedLetters = 
         {'%', '#', '&', '{', '}', '$', '!', '\'', '@', '+', '=', ' '};
     

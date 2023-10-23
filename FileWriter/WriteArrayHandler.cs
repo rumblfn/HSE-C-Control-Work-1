@@ -21,7 +21,7 @@ internal abstract class WriteArrayHandler
         double numerator = n * Math.Cos(n);
         double denominator = Math.Pow(n, 2) + 1;
         
-        return Math.Round(numerator / denominator, Lib.Constants.RoundNumber);
+        return numerator / denominator;
     }
 
     /// <summary>
@@ -65,7 +65,7 @@ internal abstract class WriteArrayHandler
         {
             for (int columnIndex = 0; columnIndex < columnSize; columnIndex++)
             {
-                resultString.Append(array[rowIndex, columnIndex] + Lib.Constants.ElementsSeparator);
+                resultString.Append($"{array[rowIndex, columnIndex]:F2}" + Lib.Constants.ElementsSeparator);
             }
 
             // Removes last element separator.
@@ -75,7 +75,12 @@ internal abstract class WriteArrayHandler
             }
             
             resultString.Append(Lib.Constants.LineEnd);
-            resultString.Append(Lib.Constants.LinesSeparator);
+
+            // Add LinesSeparator to all lines except the last one.
+            if (rowIndex < rowSize - 1)
+            {
+                resultString.Append(Lib.Constants.LinesSeparator);
+            }
         }
 
         // Convert StringBuilder to string.

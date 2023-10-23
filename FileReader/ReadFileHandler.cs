@@ -17,14 +17,13 @@ internal static class ReadFileHandler
     /// <exception cref="FormatException">Incorrect delimiters or empty elements.</exception>
     private static double[][] ParseFileContent(string content)
     {
-        // Removes empty lines at the end
-        string[] lines = content.TrimEnd().Split(Lib.Constants.LinesSeparator);
+        string[] lines = content.Split(Lib.Constants.LinesSeparator);
         if (lines.Length == 0)
         {
             throw new IndexOutOfRangeException(Constants.FileEmptyLinesErrorMessage);
         }
 
-        string[] sizes = lines[0].Trim().Split(Lib.Constants.ArraySizesSeparator);
+        string[] sizes = lines[0].Split(Lib.Constants.ArraySizesSeparator);
         if (sizes.Length != 2)
         {
             throw new IndexOutOfRangeException(Constants.FileFirstLineErrorMessage);
@@ -71,7 +70,7 @@ internal static class ReadFileHandler
                 {
                     throw new FormatException(Constants.ElementParseErrorMessage);
                 }
-                array[rowIdx][element.idx] = Math.Round(parsedValue, Lib.Constants.RoundNumber);
+                array[rowIdx][element.idx] = parsedValue;
             }
         }
         
